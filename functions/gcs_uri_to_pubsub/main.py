@@ -31,7 +31,7 @@ def main_func(event, context):
     #publish message
     response = publish(pubsub_message)
 
-    #assert response == "Message published."
+    assert response == "Message published."
 
 
 # Publishes a message to a Cloud Pub/Sub topic.
