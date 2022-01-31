@@ -1,11 +1,10 @@
-
-import re as request
+import re
 import os
 import json
 from google.cloud import pubsub_v1
 
-FUNCTIONS_TOPIC = os.getenv("FUNCTIONS_TOPIC")
-PROJECT_ID = os.getenv('GOOGLE_CLOUD_PROJECT')
+FUNCTIONS_TOPIC = os.getenv("TOPIC_NAME")
+PROJECT_ID = os.getenv("PROJECT_ID")
 
 # Instantiates a Pub/Sub client
 publisher = pubsub_v1.PublisherClient()
@@ -32,12 +31,12 @@ def main_func(event, context):
     #publish message
     response = publish(pubsub_message)
 
-    assert response == "Message published."
+    #assert response == "Message published."
 
 
 # Publishes a message to a Cloud Pub/Sub topic.
 def publish(request):
-    request_json = request.get_json(silent=True)
+    request_json = request
 
     topic_name = request_json.get("topic")
     message = request_json.get("message")
