@@ -49,7 +49,7 @@ gcloud resource-manager org-policies disable-enforce \
 #ensure only internal and google cloud load balancer ingress is allowed for functions
 gcloud resource-manager org-policies allow \
 cloudfunctions.allowedIngressSettings \
---project==${PROJECT_ID} \
+--project=${PROJECT_ID} \
 ALLOW_INTERNAL_ONLY ALLOW_INTERNAL_AND_GCLB
 
 
